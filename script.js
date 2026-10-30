@@ -1,3 +1,3 @@
-function launchGame(FREEE FIRE) {
-  alert(`Starting "${FREE FIRE}"... (Connect your HTML5 game canvas or external iframe link here)`);
+function launchGame(// Built into index.html) {
+  alert(`Starting "${// Built into index.html}"... (Connect your HTML5 game canvas or external iframe link here)`);
 }
