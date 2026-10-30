@@ -3,107 +3,369 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexus Gaming Arena</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Nexus Gaming Zone</title>
+  <style>
+    :root {
+      --bg-dark: #0a0d14;
+      --bg-card: #141926;
+      --primary: #00ff88;
+      --accent: #ff4757;
+      --text: #ffffff;
+      --text-muted: #8b949e;
+      --border: #21262d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 30px;
+      background: #111522;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 80px 20px 40px;
+      background: radial-gradient(circle at center, rgba(0, 255, 136, 0.1) 0%, transparent 60%);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 25px;
+    }
+
+    /* Grid */
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 25px;
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 10px;
+      background: var(--primary);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    /* Playable Game Area */
+    .game-arena {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    canvas {
+      background: #05070a;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      max-width: 100%;
+      display: block;
+      margin: 15px auto;
+    }
+
+    /* Leaderboard */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+    }
+
+    th {
+      background: #0f131c;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    tr:not(:last-child) {
+      border-bottom: 1px solid var(--border);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
 </head>
 <body>
+
   <!-- Navigation -->
-  <header class="navbar">
+  <header>
     <div class="logo">⚡ NEXUS<span>GAMING</span></div>
     <nav>
       <a href="#games">Games</a>
-      <a href="#streams">Live</a>
+      <a href="#play">Mini-Game</a>
       <a href="#leaderboard">Leaderboard</a>
-      <a href="#contact" class="btn-join">Join Clan</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <span class="badge">🔥 Season 2 Live</span>
-      <h1>LEVEL UP YOUR PLAY</h1>
-      <p>Discover top arcade titles, watch community streams, and compete in weekly custom rooms.</p>
-      <div class="hero-actions">
-        <a href="#games" class="btn-primary">Play Now</a>
-        <a href="#leaderboard" class="btn-secondary">View Rankings</a>
-      </div>
-    </div>
+    <h1>WELCOME TO THE ARENA</h1>
+    <p>Custom room schedules, community highlights, and instant mini-games.</p>
   </section>
 
-  <!-- Featured Games Grid -->
-  <section id="games" class="section container">
-    <h2>Featured Games</h2>
+  <div class="container">
+    <!-- Featured Games Section -->
+    <h2 id="games" class="section-title">Games & Events</h2>
     <div class="grid">
       <div class="card">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #ff416c, #ff4b2b);">🎮</div>
-        <div class="card-body">
-          <h3>Cyber Clash</h3>
-          <p>Fast-paced 2D squad arena shooter.</p>
-          <button class="btn-card" onclick="launchGame('Cyber Clash')">Play Game</button>
-        </div>
+        <div class="card-icon">🔥</div>
+        <h3>Free Fire Room</h3>
+        <p>Join weekly custom 4v4 Clash Squad tournaments.</p>
+        <button class="btn" onclick="joinRoom('Free Fire CS')">Join Match</button>
       </div>
 
       <div class="card">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #8a2387, #e94057, #f27121);">⚔️</div>
-        <div class="card-body">
-          <h3>Shadow Strike</h3>
-          <p>Tactical stealth and elimination challenges.</p>
-          <button class="btn-card" onclick="launchGame('Shadow Strike')">Play Game</button>
-        </div>
+        <div class="card-icon">🎯</div>
+        <h3>Battle Royale</h3>
+        <p>Solo and squad survival cups with cash pool prizes.</p>
+        <button class="btn" onclick="joinRoom('BR Tournament')">Register</button>
       </div>
 
       <div class="card">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #00b4db, #0083b0);">🏎️</div>
-        <div class="card-body">
-          <h3>Neon Velocity</h3>
-          <p>High-speed drift and obstacle racer.</p>
-          <button class="btn-card" onclick="launchGame('Neon Velocity')">Play Game</button>
-        </div>
+        <div class="card-icon">⚡</div>
+        <h3>Stream Highlights</h3>
+        <p>Watch top clutch plays, ace moments, and edits.</p>
+        <button class="btn" onclick="openStreams()">Watch Now</button>
       </div>
     </div>
-  </section>
 
-  <!-- Leaderboard -->
-  <section id="leaderboard" class="section container">
-    <h2>Clan Leaderboard</h2>
-    <table class="leaderboard-table">
+    <!-- Playable HTML5 Canvas Game -->
+    <h2 id="play" class="section-title">Quick Arcade (Click Box to Score)</h2>
+    <div class="game-arena">
+      <p>Score: <strong id="score" style="color: var(--primary);">0</strong> | Time: <strong id="timer">15</strong>s</p>
+      <canvas id="gameCanvas" width="400" height="250"></canvas>
+      <button class="btn" style="max-width: 200px;" onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- Leaderboard -->
+    <h2 id="leaderboard" class="section-title">Top Players</h2>
+    <table>
       <thead>
         <tr>
           <th>Rank</th>
           <th>Player</th>
+          <th>K/D</th>
           <th>Score</th>
-          <th>Tier</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>🥇 1</td>
-          <td>Kakarot_99</td>
-          <td>14,820</td>
-          <td><span class="tag mythic">Mythic</span></td>
+          <td>Kakarot_Pro</td>
+          <td>4.8</td>
+          <td>16,400</td>
         </tr>
         <tr>
           <td>🥈 2</td>
-          <td>ShadowNinja</td>
-          <td>13,450</td>
-          <td><span class="tag elite">Elite</span></td>
+          <td>ShadowHunter</td>
+          <td>4.2</td>
+          <td>14,120</td>
         </tr>
         <tr>
           <td>🥉 3</td>
-          <td>ViperStrike</td>
-          <td>11,920</td>
-          <td><span class="tag diamond">Diamond</span></td>
+          <td>ThunderStrike</td>
+          <td>3.9</td>
+          <td>12,850</td>
         </tr>
       </tbody>
     </table>
-  </section>
+  </div>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Nexus Gaming. All rights reserved.</p>
+    <p>&copy; 2026 Nexus Gaming. Built for gamers.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Embedded JavaScript -->
+  <script>
+    function joinRoom(roomName) {
+      alert(`Registration open for ${roomName}! Room ID & Password will be shared on match time.`);
+    }
+
+    function openStreams() {
+      alert("Redirecting to the official YouTube livestreams...");
+    }
+
+    // Mini-game implementation
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    let targetX = 180, targetY = 100, targetSize = 40;
+    let score = 0;
+    let timeLeft = 15;
+    let gameActive = false;
+    let timerInterval;
+
+    function drawTarget() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00ff88";
+      ctx.fillRect(targetX, targetY, targetSize, targetSize);
+    }
+
+    function moveTarget() {
+      targetX = Math.random() * (canvas.width - targetSize);
+      targetY = Math.random() * (canvas.height - targetSize);
+      drawTarget();
+    }
+
+    canvas.addEventListener("click", function(e) {
+      if (!gameActive) return;
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+
+      if (
+        clickX >= targetX &&
+        clickX <= targetX + targetSize &&
+        clickY >= targetY &&
+        clickY <= targetY + targetSize
+      ) {
+        score++;
+        document.getElementById("score").innerText = score;
+        moveTarget();
+      }
+    });
+
+    function startGame() {
+      if (gameActive) return;
+      score = 0;
+      timeLeft = 15;
+      gameActive = true;
+      document.getElementById("score").innerText = score;
+      document.getElementById("timer").innerText = timeLeft;
+      moveTarget();
+
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        document.getElementById("timer").innerText = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          gameActive = false;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          alert(`Time's up! Your final score: ${score}`);
+        }
+      }, 1000);
+    }
+
+    drawTarget();
+  </script>
 </body>
+</html>
 </html>
