@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus Gaming Arena</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">⚡ NEXUS<span>GAMING</span></div>
+    <nav>
+      <a href="#games">Games</a>
+      <a href="#streams">Live</a>
+      <a href="#leaderboard">Leaderboard</a>
+      <a href="#contact" class="btn-join">Join Clan</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">🔥 Season 2 Live</span>
+      <h1>LEVEL UP YOUR PLAY</h1>
+      <p>Discover top arcade titles, watch community streams, and compete in weekly custom rooms.</p>
+      <div class="hero-actions">
+        <a href="#games" class="btn-primary">Play Now</a>
+        <a href="#leaderboard" class="btn-secondary">View Rankings</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Games Grid -->
+  <section id="games" class="section container">
+    <h2>Featured Games</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #ff416c, #ff4b2b);">🎮</div>
+        <div class="card-body">
+          <h3>Cyber Clash</h3>
+          <p>Fast-paced 2D squad arena shooter.</p>
+          <button class="btn-card" onclick="launchGame('Cyber Clash')">Play Game</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #8a2387, #e94057, #f27121);">⚔️</div>
+        <div class="card-body">
+          <h3>Shadow Strike</h3>
+          <p>Tactical stealth and elimination challenges.</p>
+          <button class="btn-card" onclick="launchGame('Shadow Strike')">Play Game</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #00b4db, #0083b0);">🏎️</div>
+        <div class="card-body">
+          <h3>Neon Velocity</h3>
+          <p>High-speed drift and obstacle racer.</p>
+          <button class="btn-card" onclick="launchGame('Neon Velocity')">Play Game</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leaderboard -->
+  <section id="leaderboard" class="section container">
+    <h2>Clan Leaderboard</h2>
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Score</th>
+          <th>Tier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🥇 1</td>
+          <td>Kakarot_99</td>
+          <td>14,820</td>
+          <td><span class="tag mythic">Mythic</span></td>
+        </tr>
+        <tr>
+          <td>🥈 2</td>
+          <td>ShadowNinja</td>
+          <td>13,450</td>
+          <td><span class="tag elite">Elite</span></td>
+        </tr>
+        <tr>
+          <td>🥉 3</td>
+          <td>ViperStrike</td>
+          <td>11,920</td>
+          <td><span class="tag diamond">Diamond</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Nexus Gaming. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
